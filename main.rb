@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require './simple.rb'
+require './machine.rb'
 
 expression = Add.new(
   Multiply.new(Number.new(1), Number.new(2)),
