@@ -12,6 +12,10 @@ module Pattern
   def inspect
     "/#{self}/"
   end
+
+  def matches?(string)
+    to_nfa_design.accepts?(string)
+  end
 end
 
 class Empty
@@ -50,7 +54,7 @@ class Literal < Struct.new(:character)
     accept_state = Object.new
     rule = FARule.new(start_state, character, accept_state)
     rulebook = NFARulebook.new([rule])
-    
+
     NFADesign.new(start_state, [accept_state], rulebook)
   end
 end
